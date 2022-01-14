@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Biomedical Information Retrieval</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
+</head>
+  <body>
+    <nav class="navbar navbar-expand-sm topnav navbar-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand">Biomedical Information Retrieval</a>
+          <form class="d-flex" method="post" action="{{ url_for('index') }}">
+            <input class="form-control me-2" type="text" name="Search" {% if KeyWord == "" %}placeholder="Search"{% else %}placeholder="{{KeyWord|e}}"{% endif %}>
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+        </div>
+    </nav>
+
+    <nav class="navbar leftnav navbar-dark fixed-top d-flex align-items-start">
+        <div class="container-fluid cf_leftnav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a {% if active_page == "index" %}class="nav-link active"{% else %}class="nav-link"{% endif %} 
+                        href="{{ url_for('index') }}">Article Search</a>
+                </li>
+                <li class="nav-item">
+                  <a {% if active_page == "about" %}class="nav-link active"{% else %}class="nav-link"{% endif %} 
+                    href="{{ url_for('about') }}">Analysis</a>
+                </li>
+              </ul>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

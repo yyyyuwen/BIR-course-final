@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+  <body>
+    {% extends "template.html" %}
+    {% set active_page = "index" %}
+    {% block content %}
+    <div class="document_full">
+    {% if KeyWord != "" %}
+      {% if rankDoc == [] %}
+        <p>Did you mean?</p>
+        {% for word in find %}
+        <form class="d-flex" method="post" action="{{ url_for('index') }}">
+          <input type="submit" name = "Search" value={{word|e}}>
+        </form>
+        {% endfor %}
+      {% else %}
+        {% for title in rankDoc %}
+          <a href="{{ url_for('index') }}"><h5>{{ title|e }}</h5></a>
+          <span class="badge bg-info rounded-pill">{{ cate[title]|e }}</span>
+          <br>
+          {% for label, abs in full[title].items() %}
+            <b>{{ label|e }}:</b>
+            <p>{{ abs|e }}</p>
+          {% endfor %}
+        <br>
+      {% endfor %}
+      {% endif %}     
+    {% else %}
+      {% for key, value in full.items() %}
+        <a href="{{ url_for('index') }}"><h5>{{ key|e }}</h5></a>
+        {% for label, abs in value.items() %}
+          <b>{{ label|e }}:</b>
+          <p>{{ abs|e }}</p>
+        {% endfor %}
+      <br>
+      {% endfor %}
+      {% endif %}
+    </div>
+    {% endblock %}
+  </body>
+</html>
