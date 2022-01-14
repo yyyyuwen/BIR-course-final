@@ -4,6 +4,55 @@
     {% set active_page = "about" %}
     {% set KeyWord = "" %}
     {% block content %}
+    <style>
+      .nav-pills .nav-item .nav-link{
+          
+          border: none;
+          color: #766E56;
+          text-align: center;
+      
+      }
+      .nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active{
+          background-color: #766E56;
+          border: none;
+          color: white;
+          text-align: center;
+      
+      }
+    </style>
+    
+    <div class="document_full">
+      <!--button-->
+      <ul class="nav nav-pills btn mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="xml4000-tab" data-bs-toggle="pill" data-bs-target="#xml4000" type="button" role="tab" aria-controls="pills-home" aria-selected="true" >4000 files.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="xml2000-tab" data-bs-toggle="pill" data-bs-target="#xml2000" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">2000 files.</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="xml1000-tab" data-bs-toggle="pill" data-bs-target="#xml1000" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">1000 files.</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="xml4000" role="tabpanel" aria-labelledby="xml4000-tab" >
+          <div class = "row">
+            <div id="cbow" class="cbow" style="height: 1000px"></div>
+          </div>
+        </div>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+        <script>
+          var data = {{dataJSON | safe}};
+          Plotly.plot( "cbow", data[0].data, data[0].layer, {});
+        </script>
+        <div class="tab-pane fade" id="xml2000" role="tabpanel" aria-labelledby="xml2000-tab">
+          data
+        </div>
+        <div class="tab-pane fade" id="xml1000" role="tabpanel" aria-labelledby="xml1000-tab">
+            345
+        </div> 
+    </div>
     {% endblock %}
   </body>
+  
 </html>

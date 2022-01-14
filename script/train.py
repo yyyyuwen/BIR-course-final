@@ -262,10 +262,10 @@ def main():
     model = Word2Vec(data, min_count=5,vector_size= 100,workers=3, window =5)
     model.save("word2vec_cbow.model")
     model = Word2Vec.load("word2vec_cbow.model")
-    word_vectors_model = model.wv
     # val = cosine_distance(word_vectors_model, 'diagnosis', voc, 5)
     # print(val)
     # print(word_vectors_model.most_similar('heartdisease', topn=10))
+    word_vectors_model = model.wv
     user_input = ['heart', 'coronavirus', 'pneumonia', 'fever', 'cough']
     topn = 15
     words = word_process(word_vectors_model, user_input, topn)
