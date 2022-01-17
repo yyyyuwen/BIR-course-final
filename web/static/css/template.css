@@ -3,7 +3,8 @@ body {
     height:100%;
 }
 .topnav{
-    background: #283044;
+    background-color: #B49286;
+    border-color: #EEE4E1;
     height: 50px;
     font-size: large;
 }
@@ -16,12 +17,33 @@ body {
     margin-top:50px;
 }
 .leftnav{
-    background: #78A1BB;
+    background-color: #D7BEA8;
     margin-top:50px;
     width:14%;
     height:100%;
     font-size: 20px;
 }
+
+.left{
+    background-color: #D7BEA8;
+    color: #EEE4E1;
+}
+
+.left-active{
+    background-color: #D7BEA8;
+    color: #744253;
+}
+
+.left-active:hover{
+    background-color: #D7BEA8;
+    color: #744253;
+}
+
+.left:hover{
+    background-color: #D7BEA8;
+    color: #744253;
+}
+
 .cf_leftnav{
     margin-left:20px;
     margin-top:20px
@@ -47,6 +69,7 @@ body {
     overflow-y: scroll;
 }
 .document_full{
+    background-color: #fff8f9;
     width:86%;
     height:93%;
     margin-top:50px;
@@ -60,12 +83,52 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-a:visited {
-    color: #283044;
-  } 
-a:hover {
-    color: #78A1BB;
+
+.link{
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
 }
-a:active {
-    color: #717EC3;
+.link:visited {
+    color: #744253;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+}
+.link:active{
+    color: #e4c9cc;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+}
+.link:hover{
+    color: #D7BEA8;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+}
+.nav-btn {
+    background-color: #e4c9cc;
+    color: #5c5655;
+}
+
+.nav-btn:hover {
+    background-color: #744253;
+    color: white;
+}
+.nav-pills .nav-item .nav-link{          
+    border: none;
+    color: #744253;
+    text-align: center;
+}
+
+.nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active{
+    background-color: #e4c9cc;
+    border: none;
+    color: #5c5655;
+    text-align: center;
 }

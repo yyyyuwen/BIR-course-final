@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+  <body>
+    {% extends "template.html" %}
+    {% set active_page = "index" %}
+    {% block content %}
+    <div class="document_full">
+        <h5>{{ title|e }}</h5>
+        <span class="badge rounded-pill" style="background-color:#744253">{{ cate[title]|e }}</span>
+        <br>
+        {% for label, abs in full[title].items() %}
+            <b>{{ label|e }}:</b>
+            <p>{{ abs|e }}</p>
+        {% endfor %}
+    </div>
+    {% endblock %}
+  </body>
+</html>

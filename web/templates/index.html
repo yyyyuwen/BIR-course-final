@@ -9,13 +9,15 @@
         <p>Did you mean?</p>
         {% for word in find %}
         <form class="d-flex" method="post" action="{{ url_for('index') }}">
-          <input type="submit" name = "Search" value={{word|e}}>
+          <input class = "link" type="submit" name = "Search" class="link" value="{{word|e}}">
         </form>
         {% endfor %}
       {% else %}
         {% for title in rankDoc %}
-          <a href="{{ url_for('index') }}"><h5>{{ title|e }}</h5></a>
-          <span class="badge bg-info rounded-pill">{{ cate[title]|e }}</span>
+          <form class="d-flex" method="post" action="{{ url_for('show') }}">
+            <h5><input class = "link" type="submit" name = "Article" class="link" value="{{title|e}}"></h5>
+          </form>
+          <span class="badge rounded-pill" style="background-color:#744253">{{ cate[title]|e }}</span>
           <br>
           {% for label, abs in full[title].items() %}
             <b>{{ label|e }}:</b>
@@ -26,7 +28,11 @@
       {% endif %}     
     {% else %}
       {% for key, value in full.items() %}
-        <a href="{{ url_for('index') }}"><h5>{{ key|e }}</h5></a>
+        <form class="d-flex" method="post" action="{{ url_for('show') }}">
+          <h5><input class = "link" type="submit" name = "Article" class="link" value="{{key|e}}"></h5>
+        </form>
+        <span class="badge rounded-pill" style="background-color:#744253">{{ cate[key]|e }}</span>
+        <br>
         {% for label, abs in value.items() %}
           <b>{{ label|e }}:</b>
           <p>{{ abs|e }}</p>
